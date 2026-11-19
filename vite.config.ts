@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/SmartFactory-AI/',
+  base: process.env.GITHUB_ACTIONS === 'true'
+    ? '/SmartFactory-AI/'
+    : '/',
   plugins: [
     react(),
     tailwindcss(),
